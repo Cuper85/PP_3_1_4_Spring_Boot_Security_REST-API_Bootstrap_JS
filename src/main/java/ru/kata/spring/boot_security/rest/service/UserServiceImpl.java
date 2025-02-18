@@ -47,7 +47,6 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void add(User user, List<Role> roles) {
-        // Проверка на уникальность email
         if (userRepository.findByUseremail(user.getEmail()) != null) {
             throw new IllegalArgumentException("Email already exists!");
         }

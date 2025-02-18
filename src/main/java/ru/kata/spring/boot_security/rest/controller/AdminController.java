@@ -90,32 +90,15 @@ public class AdminController {
         }
         userService.delete(id);
         return ResponseEntity.ok("User with ID = " + id + " was successfully deleted from Database!");
-//      return new ResponseEntity<String>("User deleted successfully!", HttpStatus.OK);                                   //  можно применить и такой подход
     }
 
-//  Юрий, хотел уточнить, какой подход лучше использовать при возврате ResponseEntity при удалении пользователя?
-
     /*
-    @DeleteMapping("/users/{id}")
-    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
-        User user = userService.findById(id);
-        if (user == null) {
-            throw new NoSuchUserException("User not found!");
-        }
-        userService.delete(id);
-        return ResponseEntity.noContent().build();                   //  noContent() создаёт ResponseEntity с кодом состояния HTTP 204 No Content
-    }
-     */
+    Юрий приветствую! Хотел спросить совет, какой подход лучше использовать при возврате ResponseEntity при удалении пользователя?
 
-    /*
-    @DeleteMapping("/users/{id}")
-    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
-        User user = userService.findById(id);
-        if (user == null) {
-            throw new NoSuchUserException("User not found!");
-        }
-        userService.delete(id);
-        return ResponseEntity.ok().build();                            //  метод build() создает ResponseEntity без тела
+        return ResponseEntity.ok("User with ID = " + id + " was successfully deleted from Database!");
+        return ResponseEntity.noContent().build();                                                        //  noContent() создаёт ResponseEntity с кодом состояния HTTP 204 No Content
+        return ResponseEntity.ok().build();                                                               //  метод build() создает ResponseEntity без тела
+        return new ResponseEntity<String>("User deleted successfully!", HttpStatus.OK);
     }
      */
 
