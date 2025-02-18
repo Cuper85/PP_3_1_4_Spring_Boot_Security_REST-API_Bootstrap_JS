@@ -58,7 +58,7 @@ public class UserServiceImpl implements UserService {
             }
         }
         List<Role> managedRoles = roles.stream()                                    // Загружаем роли из базы данных, чтобы они были управляемыми
-            .map(role -> roleRepository.findById(role.getId()).orElseThrow(() -> new EntityNotFoundException("Role not found"))).collect(Collectors.toList());  //  спросить у чата, каким образом здесь происходит выбор роли для нового пользователя
+            .map(role -> roleRepository.findById(role.getId()).orElseThrow(() -> new EntityNotFoundException("Role not found"))).collect(Collectors.toList());
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setRoles(managedRoles);
         userRepository.save(user);
